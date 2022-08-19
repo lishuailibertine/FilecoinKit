@@ -8,7 +8,7 @@
 import Foundation
 import Blake2
 import CryptoSwift
-import Base32
+import Base32Swift
 
 public enum FileCoinSignType: UInt8, Codable {
     case SECP256K1 = 1
@@ -61,7 +61,7 @@ public struct FilecoinAddress {
         let type = try FilecoinAddress.signType(address: address)
         let startIndex = address.index(address.startIndex, offsetBy: 2)
         let encodeAddress = String(address[startIndex..<address.endIndex])
-        guard let zhData = Base32.base32DecodeToData(encodeAddress) else {
+        guard let zhData = base32DecodeToData(encodeAddress) else {
             throw FilecoinAddressError.invalidAddress
         }
         var dataArray = [UInt8]()
@@ -100,7 +100,7 @@ public struct FilecoinAddress {
         let newDataHash = try Blake2.hash(.b2b, size: 4, data: Data(newDataArray), key: nil)
         newDataHash.forEach{zhDataArray.append($0)}
         
-        var address = Base32.base32Encode(Data(zhDataArray)).lowercased()
+        var address = base32Encode(Data(zhDataArray)).lowercased()
         if address.contains("=") {
             address = address.replacingOccurrences(of: "=", with: "")
         }

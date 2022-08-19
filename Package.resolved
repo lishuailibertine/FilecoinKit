@@ -11,12 +11,12 @@
         }
       },
       {
-        "package": "Base32",
-        "repositoryURL": "https://github.com/lishuailibertine/Base32",
+        "package": "Base32Swift",
+        "repositoryURL": "https://github.com/lishuailibertine/Base32Swift",
         "state": {
           "branch": null,
-          "revision": "c4bc0a49689999ae2c7c778f3830a6a6e694efb8",
-          "version": "1.0.0"
+          "revision": "643050c06a2f955f7e3c43f7c34e7f45a4e13b3d",
+          "version": "0.0.2"
         }
       },
       {
