@@ -14,9 +14,9 @@
         "package": "Base32",
         "repositoryURL": "https://github.com/lishuailibertine/Base32",
         "state": {
-          "branch": "master",
+          "branch": null,
           "revision": "c4bc0a49689999ae2c7c778f3830a6a6e694efb8",
-          "version": null
+          "version": "1.0.0"
         }
       },
       {
