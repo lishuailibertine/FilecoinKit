@@ -7,7 +7,9 @@ import BigInt
 final class FilecoinRPCTests: XCTestCase {
     
     var rpc: FilecoinHttpRequest {
-        FilecoinHttpRequest.shared
+        var request = FilecoinHttpRequest.shared
+        request.url = "nodel url"
+        return request
     }
     func testExample() throws {
         // This is an example of a functional test case.
