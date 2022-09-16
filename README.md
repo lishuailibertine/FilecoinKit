@@ -16,18 +16,15 @@ dependencies: [
 ## Usage
 ```Swift
 // Types of requested services currently supported
- public enum FilecoinProviderType: String{
-    case Balance = "WalletBalance"
-    case Nonce = "MpoolGetNonce"
-    case SendMessage = "MpoolPush"
-    case MpoolPending = "MpoolPending"
-    case ChainHead = "ChainHead"
-    case GasEstimateGasLimit = "GasEstimateGasLimit"
-    case GasEstimateGasPremium = "GasEstimateGasPremium"
-    case GasEstimateFeeCap = "GasEstimateFeeCap"
-    case MpoolPendingFilter = "MpoolPendingFilter"
-    case GasEstimateMessageGas = "GasEstimateMessageGas"
- }
+ case Balance = "WalletBalance"
+ case Nonce = "MpoolGetNonce"
+ case SendMessage = "MpoolPush"
+ case MpoolPending = "MpoolPending"
+ case ChainHead = "ChainHead"
+ case GasEstimateGasLimit = "GasEstimateGasLimit"
+ case GasEstimateGasPremium = "GasEstimateGasPremium"
+ case GasEstimateFeeCap = "GasEstimateFeeCap"
+ case GasEstimateMessageGas = "GasEstimateMessageGas"
  
 // keypair
  let keypair = try FilecoinSecpKeypair(privateData:  Data(base64Encoded: "aGwOA+9h9NBsZLHmrjdenKfiXT2RoMlxlDSVp+BG9Xc=")!)
