@@ -10,7 +10,7 @@ Filecoin swift package
 Add .package(url:_:) to your Package.swift:
 ```Swift
 dependencies: [
-    .package(url: "https://github.com/lishuailibertine/FlowSwift", .branch("main")),
+    .package(url: "https://github.com/lishuailibertine/FilecoinKit", .branch("main")),
 ],
 ```
 ## Usage
