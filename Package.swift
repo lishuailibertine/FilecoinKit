@@ -21,7 +21,7 @@ let package = Package(
         .package(url: "https://github.com/mathwallet/Secp256k1Swift",from: "1.3.1"),
         .package(url: "https://github.com/mxcl/PromiseKit.git", .upToNextMajor(from: "6.18.0")),
         .package(url: "https://github.com/Alamofire/Alamofire", from: "5.6.2"),
-        .package(name:"Blake2",url: "https://github.com/tesseract-one/Blake2.swift.git", from: "0.1.2"),
+        .package(name: "Blake2", url: "https://github.com/lishuailibertine/Blake2.swift", from: "0.1.3"),
         .package(url: "https://github.com/attaswift/BigInt", from: "5.3.0"),
         .package(name:"CBORSwift", url: "https://github.com/lishuailibertine/CBORSWift",from: "0.0.1"),
         .package(name:"Base32Swift", url: "https://github.com/lishuailibertine/Base32Swift", from: "0.0.2")
