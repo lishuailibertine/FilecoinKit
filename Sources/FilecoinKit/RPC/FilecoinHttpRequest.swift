@@ -11,8 +11,13 @@ import Alamofire
 import Secp256k1Swift
 
 public struct FilecoinHttpRequest {
+    public struct FilecoinResultError: Decodable {
+        public var code: Int
+        public var message: String
+    }
     public struct FilecoinResult<T: Decodable>: Decodable {
-        public var result: T
+        public var result: T?
+        public var error: FilecoinResultError?
     }
     public enum FilecoinProviderType: String{
         case Balance = "WalletBalance"
@@ -200,13 +205,15 @@ public struct FilecoinHttpRequest {
                 case .success(let data):
                     do {
                         let result = try JSONDecoder().decode(FilecoinResult<Response>.self, from: data)
-                        seal.fulfill(result.result)
-                    } catch let e {
-                        guard let errorMessage = String(data: data, encoding: .utf8) else {
-                            seal.reject(e)
-                            return
+                        if let res = result.result {
+                            seal.fulfill(res)
+                        } else if let err = result.error {
+                            seal.reject(FilecoinTransactionError.otherError(message: "\(err.code):\(err.message)"))
+                        } else {
+                            seal.reject(FilecoinTransactionError.otherError(message: "Unknown error"))
                         }
-                        seal.reject(FilecoinTransactionError.otherError(message: errorMessage))
+                    } catch let e {
+                        seal.reject(e)
                     }
                 case .failure(let e):
                     seal.reject(e)
