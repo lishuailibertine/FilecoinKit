@@ -55,14 +55,22 @@ public struct FileCoinFeeCap: Encodable {
         try container.encode(placeholder)
     }
 }
-
+/**
+ https://github.com/filecoin-project/lotus/blob/517c0a53b15749f366f271edf6513f9253559678/api/v0api/full.go
+ // MpoolPushMessage atomically assigns a nonce, signs, and pushes a message
+     // to mempool.
+     // maxFee is only used when GasFeeCap/GasPremium fields aren't specified
+     //
+     // When maxFee is set to 0, MpoolPushMessage will guess appropriate fee
+     // based on current chain conditions
+ */
 public struct FileCoinMessageGas: Encodable {
     public struct MessageSendSpec: Encodable {
         public var maxFee: BigInt?
         enum CodingKeys: String, CodingKey {
             case maxFee = "MaxFee"
         }
-        public init(maxFee: BigInt? = BigInt(1000000000000000)){
+        public init(maxFee: BigInt? = BigInt(0)){
             self.maxFee = maxFee
         }
         public func encode(to encoder: Encoder) throws {
