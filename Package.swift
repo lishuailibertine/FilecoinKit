@@ -18,7 +18,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/krzyzanowskim/CryptoSwift",from: "1.4.2"),
-        .package(url: "https://github.com/mathwallet/Secp256k1Swift",from: "1.3.1"),
+        .package(url: "https://github.com/mathwallet/Secp256k1Swift",from: "2.0.0"),
         .package(url: "https://github.com/mxcl/PromiseKit.git", .upToNextMajor(from: "6.18.0")),
         .package(url: "https://github.com/Alamofire/Alamofire", from: "5.6.2"),
         .package(name: "Blake2", url: "https://github.com/lishuailibertine/Blake2.swift", from: "0.1.3"),
