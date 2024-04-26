@@ -183,7 +183,7 @@ public struct FilecoinHttpRequest {
     private func headers() throws -> HTTPHeaders {
         var headers: HTTPHeaders = ["Content-type": "text/plain;charset=UTF-8"]
         // default
-        headers.add(name: "Authorization", value: "Bearer Token")
+//        headers.add(name: "Authorization", value: "Bearer Token")
         if let infuraToken = self.infuraToken {
             let project_id = String(url.split(separator: "@")[1])
             let infuraAuthStr = project_id + ":" + infuraToken
