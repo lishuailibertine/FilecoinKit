@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/Alamofire/Alamofire",
         "state": {
           "branch": null,
-          "revision": "8dd85aee02e39dd280c75eef88ffdb86eed4b07b",
-          "version": "5.6.2"
+          "revision": "f455c2975872ccd2d9c81594c658af65716e9b9a",
+          "version": "5.9.1"
         }
       },
       {
@@ -69,8 +69,8 @@
         "repositoryURL": "https://github.com/mxcl/PromiseKit.git",
         "state": {
           "branch": null,
-          "revision": "ed3192004c0b00b4b3d7baa9578ee655c66faae3",
-          "version": "6.18.0"
+          "revision": "cb70b070cde06837cd10a1febdf6105c1a3bb348",
+          "version": "8.1.1"
         }
       },
       {
