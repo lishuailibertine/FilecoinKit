@@ -85,7 +85,7 @@ public struct FilecoinHttpRequest {
     public var path: String?
     private var infuraToken: String?
     public static let shared = FilecoinHttpRequest()
-    public init(url: String = "https://filecoin.YourOwnNode", path: String? = "/rpc/v0", infuraToken: String? = nil) {
+    public init(url: String = "https://filecoin.YourOwnNode", path: String? = "/rpc/v1", infuraToken: String? = nil) {
         self.url = url
         self.path = path
         self.infuraToken = infuraToken
@@ -183,7 +183,7 @@ public struct FilecoinHttpRequest {
     private func headers() throws -> HTTPHeaders {
         var headers: HTTPHeaders = ["Content-type": "text/plain;charset=UTF-8"]
         // default
-        headers.add(name: "Authorization", value: "Bearer Token")
+//        headers.add(name: "Authorization", value: "Bearer Token")
         if let infuraToken = self.infuraToken {
             let project_id = String(url.split(separator: "@")[1])
             let infuraAuthStr = project_id + ":" + infuraToken
@@ -200,7 +200,13 @@ public struct FilecoinHttpRequest {
             
             let param = FilecoinRPCParam(method: method, params: parameters)
             let api: String = url.contains("@") ? try FilecoinURL.infura(url: url).api() : try FilecoinURL.normal(url: url).api()
-            AF.request("\(api)\(path ?? "")", method: .post, parameters: param.requestParams, encoding: JSONEncoding.default, headers: try headers()).responseData { response in
+            var urlString = ""
+            if let _url = URL(string: url), _url.pathComponents.count > 1 {
+                urlString = url
+            } else {
+                urlString = "\(api)\(path ?? "")"
+            }
+            AF.request(urlString, method: .post, parameters: param.requestParams, encoding: JSONEncoding.default, headers: try headers()).responseData { response in
                 switch response.result {
                 case .success(let data):
                     do {
